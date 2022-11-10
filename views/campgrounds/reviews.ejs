@@ -1,0 +1,23 @@
+<% layout('layouts/boilerplate')%> 
+<h1 class="text-center">Rating and Reviews</h1>
+<ul>
+ <% for(let review of finalreview){ %>
+
+
+    <div class="card mb-3">
+      <div class="row">
+        <div class="card mb-3">
+            <div class="col-md-8">
+            <p class="card-text font-weight-bold" class="font-weight-bold" style="width: 14rem;"> Username: <%=review._id  %> 
+                
+            <p class="card-text" class="font-weight-bold" style="width: 14rem;"> Review: <%= review.body %></p>   
+                
+            <p class="card-text" class="font-weight-bold" style="width: 8rem;"> Rating:  <%= review.rating  %> </p> 
+        </div>
+        </div>
+      </div>
+      
+    </div>
+  
+  <% } %>  
+</ul> 

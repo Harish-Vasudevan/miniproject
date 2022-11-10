@@ -1,0 +1,65 @@
+
+<% layout('layouts/boilerplate')%> 
+<div class="d-flex justify-content-center ">
+  
+        <div class="card " style="width: 30rem;">
+            <img src="<%= camp.image %>" class="card-img-top" alt="...">
+            <div class="card-body">
+              <h5 class="card-title"><%= camp.title %></h5>
+              <p class="card-text"><%= camp.description %></p>
+            </div>
+            <ul class="list-group list-group-flush">
+              <li class="list-group-item text-muted"><%= camp.location %></li>
+              <li class="list-group-item">INR <%= camp.price %></li>
+              <li class="list-group-item">A third item</li>
+            </ul>
+            <div class="card-body">
+              <a href="/campgrounds/<%= camp._id %>/edit " class="card-link btn btn-info">Edit</a>
+              <form class="d-inline" action="/campgrounds/<%= camp._id %>?_method=DELETE "method="post">
+                <button class="btn btn-danger">Delete</button></form>
+            
+            </div>
+          
+              <h2>Leave a Review</h2>
+              <form action="/campground/<%= camp._id  %>/reviews " method="post" class="mb-3 validated-form" novalidate>
+                <div class="mb-3">
+                  <label  class="form-label" for="rating">Rating</label>
+                  <input type="range" class="form-range" min="1" max="5" name="review[rating]" id="rating">
+                </div>
+                <div class="mb-3">
+                  <label class="form-label" for="body">Reviews</label>
+               <textarea  class="form-control" name="review[body]" id="body" cols="30" rows="3" required></textarea>
+              <div class="valid-feedback">
+                Looks good!
+              </div>
+              </div>
+                <button class="btn btn-success">submit</button>
+               
+              </form>
+              <form action="/campground/<%= camp._id  %>/showreviews " method="get">
+                <button class="btn btn-info " >show Reviews</button></form>
+              
+    
+            
+       
+            <!-- <div class="card-footer text-muted">
+                <a href="/campgrounds " class="text-muted text-decoration-none">All campground</a>
+            </div> -->
+           
+    </div>
+   
+    
+   
+</div>
+<!-- 
+
+<img src="<%= camp.image %>" alt="">
+    <h1><%= camp.title %> </h1>
+    <h2><%= camp.location %> </h2> 
+  <h2> INR <%= camp.price %> </h2>
+  <p> <%= camp.description %> </p>
+   <footer> <a href="/campgrounds">all campground</a>
+    <br>
+    <a href="/campgrounds/<%= camp._id %>/edit "> Edit</a></footer>
+   
+   -->
